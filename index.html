@@ -53,7 +53,7 @@ generations.</p>
 <!-- Category and Card div -->
     <div class="flex gap-3 lg:gap-5 mx-auto">
     <!-- Category div -->
-     <div class="w-[150px] h-[500px] border lg:w-[200px] lg:h-[470px] bg-white rounded-2xl">
+     <div class="w-[150px] h-[500px] lg:w-[200px] lg:h-[470px] bg-white rounded-2xl">
      <h1 class="font-inter font-bold ml-3">Categories</h1>
 
     <button id="all-trees" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2">All Trees</button>
@@ -64,7 +64,7 @@ generations.</p>
      </div>
     
      <!-- Card div -->
-      <div id="card-div" class="w-[250px] h-auto  grid gap-4 justify-center border lg:w-[800px] lg:h-auto lg:grid-cols-3 ">
+      <div id="card-div" class="w-[250px] h-auto  grid gap-4 justify-center lg:w-[800px] lg:h-auto lg:grid-cols-3 ">
      <!-- card -->
      
       </div>
@@ -72,15 +72,32 @@ generations.</p>
 
 
       </div>
-
+    <!-- ----Div for card & total-------- -->
+    <div class="flex flex-col">
     <!-- Add Cart div -->  
-     <div class="w-[280px] h-[200px] border mx-auto mt-6 lg:h-[600px] lg:mt-0 bg-white rounded-2xl">
+     <div class="w-[280px] h-[200px] mx-auto mt-6 lg:h-[600px] lg:mt-0 bg-white rounded-2xl p-2 overflow-auto">
       <h1 class="font-inter font-bold ml-3">Your Cart</h1>
-    
+
+
+    <!-- cart -->
+    <div id="cart-div" class="p-2">
+      <!-- box -->
+        
+    </div>
+
+
+
+
+
+
+
+
     
     </div>
-     
-
+<!-- Total div --> 
+     <div class="w-[270px] h-[40px] bg-white rounded-xl p-2 mx-auto border-2 border-[#15803d]" ><h1 class="font-inter font-bold">Total: ৳<span id="cart-total">0</span></h1></div>
+    
+    </div> 
 
 </div>
 
@@ -179,7 +196,7 @@ generations.</p>
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
+        <button class="btn bg-[#cff0dc] text-[#14532d] hover:bg-[#14532d] hover:text-white rounded-2xl">Close</button>
       </form>
     </div>
   </div>

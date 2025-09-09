@@ -24,7 +24,7 @@ divForCard.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col ite
             <button class="w-[140px] h-[25px]  rounded-2xl text-[13px] font-semibold font-inter bg-[#f0fdf4] text-[#15803d]lg:w-[90px] lg:h-[30px]">${tree.category}</button>
             <h2 class="font-bold font-inter text-[#15803d]">৳ ${tree.price}</h2>
         </div>
-        <button class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px]">Add to Cart</button>
+        <button onclick="cartBtn(${tree.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px] ">Add to Cart</button>
      </div>`
 
 getContainer.append(divForCard)
@@ -89,15 +89,20 @@ const accordingCategory=(eachCategories)=>{
             <button class="w-[140px] h-[25px]  rounded-2xl text-[13px] font-semibold font-inter bg-[#f0fdf4] text-[#15803d]lg:w-[90px] lg:h-[30px]">${eachCategory.category}</button>
             <h2 class="font-bold font-inter">৳ ${eachCategory.price}</h2>
         </div>
-        <button class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px]">Add to Cart</button>
+        <button onclick="cartBtn(${eachCategory.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px]">Add to Cart</button>
      </div>`
 
      specificContainer.append(divForEach)
 
-
     }
+    
 }
+
 }
+
+
+
+
 
 // --------------Modal of Details-------------
 
@@ -120,14 +125,57 @@ const nameModals=(modalId)=>{
 </div>`
          
           }
+
 }
 
 
 
 
 
+// ---------Cart section-----------
+const cartBtn=(clickId)=>{
+    const detailsUrl=`https://openapi.programming-hero.com/api/plant/${clickId}`
+    fetch(detailsUrl)
+    .then((res)=>res.json())
+    .then((json)=>clickCart(json.plants))
 
 
+const clickCart=(click)=>{
+
+    const getCartDiv=document.getElementById("cart-div")
+
+   const divForCart= document.createElement("div")
+   divForCart.innerHTML=`<div id="for-cross" class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 ">
+        <div>
+          <h1 class="font-inter font-bold">${click.name}</h1>
+          <p>৳ ${click.price}</p>
+          </div>
+        <i id="cross" class="fa-solid fa-xmark"></i>
+        </div>`
+
+        getCartDiv.append(divForCart)
+
+alert(`${click.name}has been added to the cart`)
+
+
+//   cart account counting
+   const counter=parseInt(document.getElementById("cart-total").innerHTML)     
+   const count= counter+ click.price;
+   document.getElementById("cart-total").innerHTML=count
+   
+   
+
+
+// -----Cross Button-------
+   document.getElementById("cross").addEventListener("click",
+    function(){
+        
+        divForCart.innerHTML="";
+    })
+
+    
+}
+}
 
 
 
