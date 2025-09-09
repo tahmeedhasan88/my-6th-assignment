@@ -53,10 +53,10 @@ generations.</p>
 <!-- Category and Card div -->
     <div class="flex gap-3 lg:gap-5 mx-auto">
     <!-- Category div -->
-     <div class="w-[150px] h-[500px] border lg:w-[200px] lg:h-[600px]">
-     <h1 class="font-inter font-bold">Categories</h1>
+     <div class="w-[150px] h-[500px] border lg:w-[200px] lg:h-[470px] bg-white rounded-2xl">
+     <h1 class="font-inter font-bold ml-3">Categories</h1>
 
-    <button id="all-trees" class="w-[130px] h-[30px] lg:w-[200px] bg-white  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2">All Trees</button>
+    <button id="all-trees" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2">All Trees</button>
 
     <div id="category-field"></div>
 
@@ -74,8 +74,12 @@ generations.</p>
       </div>
 
     <!-- Add Cart div -->  
-     <div class="w-[280px] h-[200px] border mx-auto mt-6 lg:h-[600px] lg:mt-0"> </div>
-
+     <div class="w-[280px] h-[200px] border mx-auto mt-6 lg:h-[600px] lg:mt-0 bg-white rounded-2xl">
+      <h1 class="font-inter font-bold ml-3">Your Cart</h1>
+    
+    
+    </div>
+     
 
 
 </div>
@@ -123,6 +127,19 @@ generations.</p>
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- -------Footer Form Section----------- -->
 <div class="w-[390px] h-[400px] bg-[#166534] mx-auto flex flex-col items-center justify-center lg:w-[1365px] lg:h-[450px]">
     <h1 class="font-inter font-semibold text-white text-2xl lg:text-3xl">Plant a Tree</h1>
@@ -152,6 +169,23 @@ generations.</p>
 <div class="w-[390px] h-[40px] bg-[#14532d] mx-auto lg:w-[1365px]">
     <p class="text-center text-white font-inter text-[12px] p-2 lg:text-[15px]">© 2025 Green Earth. All Rights Reserved.</p>
 </div>
+
+
+<!-- ------------It is code of Modal------------- -->
+ <!-- Open the modal using ID.showModal() method -->
+<dialog id="get_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal-field"></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
 
 
 
