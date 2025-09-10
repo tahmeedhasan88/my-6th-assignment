@@ -60,13 +60,20 @@ categoryContainer.innerHTML="";
 for(category of categories){
 
 const divForCategories=document.createElement("div")
-divForCategories.innerHTML=`<button onclick="loadCategories(${category.id})" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2">${category.category_name}</button>`
+divForCategories.innerHTML=`<button id="active-btn-${category.id}" onclick="loadCategories(${category.id})" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2 remove-btn">${category.category_name}</button>`
 
 categoryContainer.append(divForCategories);
 
+
+
+}
+
 }
 }
-}
+
+
+
+
 
 // --------For Each Categories----------
 
@@ -74,8 +81,22 @@ const loadCategories=(id)=>{
     const url=`https://openapi.programming-hero.com/api/category/${id}`
     fetch(url)
     .then((res)=>res.json())
-    .then((json)=>accordingCategory(json.plants))
+    .then((json)=>{
+         removeActive();
+        accordingCategory(json.plants)
+        const clickBtn=document.getElementById(`active-btn-${id}`)
+        clickBtn.classList.add("active")
+       
+    })
 
+
+
+
+const removeActive=()=>{
+    const categoryBtns=document.querySelectorAll(".remove-btn")
+    categoryBtns.forEach((btn)=>
+    btn.classList.remove("active"));
+}
 
 const accordingCategory=(eachCategories)=>{
 
