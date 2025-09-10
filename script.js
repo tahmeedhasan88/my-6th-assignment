@@ -31,8 +31,7 @@ divForCard.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col ite
             <button class="w-[140px] h-[25px]  rounded-2xl text-[13px] font-semibold font-inter bg-[#f0fdf4] text-[#15803d]lg:w-[90px] lg:h-[30px]">${tree.category}</button>
             <h2 class="font-bold font-inter text-[#15803d]">৳ ${tree.price}</h2>
         </div>
-        <button onclick="cartBtn(${tree.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px] hover:-translate-y-1 hover:shadow-xl">Add to Cart</button>
-     </div>`
+        <button onclick="cartBtn(${tree.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px] shadow-md transition transform duration-150 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 active:bg-green-800">Add to Cart</button> </div>`
 
 getContainer.append(divForCard)
 
@@ -60,7 +59,8 @@ categoryContainer.innerHTML="";
 for(category of categories){
 
 const divForCategories=document.createElement("div")
-divForCategories.innerHTML=`<button id="active-btn-${category.id}" onclick="loadCategories(${category.id})" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2 remove-btn">${category.category_name}</button>`
+divForCategories.innerHTML=`<button id="active-btn-${category.id}" onclick="loadCategories(${category.id})" class="w-[130px] h-[30px] lg:w-[195px] bg-[#f0fdf4]  text-[#15803d] text-center font-inter rounded-[7px] font-semibold hover:bg-[#15803d] hover:text-white mt-2 remove-btn  shadow-md transition transform duration-150 
+hover:-translate-y-0.5 hover:shadow-lg active:scale-95 active:bg-green-800">${category.category_name}</button>`
 
 categoryContainer.append(divForCategories);
 
@@ -108,7 +108,7 @@ const accordingCategory=(eachCategories)=>{
         const divForEach=document.createElement("div")
         divForEach.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col items-center justify-center p-3 gap-2 rounded-2xl lg:w-[250px] lg:h-[370px] shadow">
 
-        <img class="w-[200px] h-[120px] lg:w-[220px] lg:h-[140px] rounded-2xl" src="${eachCategory.image}">
+        <img class="w-[200px] h-[120px] lg:w-[220px] lg:h-[140px] rounded-2xl object-cover transition-transform duration-500 ease-in-out transform hover:scale-110" src="${eachCategory.image}">
         <div class="ml-1">
            <button onclick="nameModals(${eachCategory.id})" class="font-bold font-inter lg:text-[17px] hover:text-[#15803d]">${eachCategory.name}</button> 
            <p class="font-inter text-[10px] w-[200px]lg:w-[210px] lg:text-[12px]">${eachCategory.description}</p>
@@ -117,8 +117,8 @@ const accordingCategory=(eachCategories)=>{
             <button class="w-[140px] h-[25px]  rounded-2xl text-[13px] font-semibold font-inter bg-[#f0fdf4] text-[#15803d]lg:w-[90px] lg:h-[30px]">${eachCategory.category}</button>
             <h2 class="font-bold font-inter">৳ ${eachCategory.price}</h2>
         </div>
-        <button onclick="cartBtn(${eachCategory.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px]">Add to Cart</button>
-     </div>`
+        <button onclick="cartBtn(${eachCategory.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px]  shadow-md transition transform duration-150 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 active:bg-green-800">Add to Cart</button>
+        </div>`
 
      specificContainer.append(divForEach)
 
@@ -169,7 +169,7 @@ const clickCart=(click)=>{
     const getCartDiv=document.getElementById("cart-div")
 
    const divForCart= document.createElement("div")
-   divForCart.innerHTML=`<div class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 ">
+   divForCart.innerHTML=`<div class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 shadow">
         <div>
           <h1 class="font-inter font-bold">${click.name}</h1>
           <p>৳ ${click.price}</p>
