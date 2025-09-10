@@ -20,9 +20,9 @@ getContainer.innerHTML="";
 for(tree of trees){
 
 const divForCard=document.createElement("div")
-divForCard.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col items-center justify-center p-3 gap-2 rounded-2xl lg:w-[250px] lg:h-[370px] shadow">
+divForCard.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col items-center justify-center p-3 gap-2 rounded-2xl lg:w-[250px] lg:h-[370px] shadow overflow-hidden">
 
-        <img class="w-[200px] h-[120px] lg:w-[220px] lg:h-[140px] rounded-2xl" src="${tree.image}">
+        <img class="w-[200px] h-[120px] lg:w-[220px] lg:h-[140px] rounded-2xl object-cover transition-transform duration-500 ease-in-out transform hover:scale-110" src="${tree.image}">
         <div class="ml-1">
            <button onclick="nameModals(${tree.id})" class="font-bold font-inter lg:text-[17px] hover:text-[#15803d]">${tree.name}</button> 
            <p class="font-inter text-[10px] w-[200px]lg:w-[210px] lg:text-[12px]">${tree.description}</p>
@@ -31,7 +31,7 @@ divForCard.innerHTML=`<div class="w-[230px] h-[330px] bg-white flex flex-col ite
             <button class="w-[140px] h-[25px]  rounded-2xl text-[13px] font-semibold font-inter bg-[#f0fdf4] text-[#15803d]lg:w-[90px] lg:h-[30px]">${tree.category}</button>
             <h2 class="font-bold font-inter text-[#15803d]">৳ ${tree.price}</h2>
         </div>
-        <button onclick="cartBtn(${tree.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px] ">Add to Cart</button>
+        <button onclick="cartBtn(${tree.id})" class="w-[200px] h-[35px] bg-[#15803d] text-white font-semibold rounded-2xl lg:w-[220px] lg:h-[40px] hover:-translate-y-1 hover:shadow-xl">Add to Cart</button>
      </div>`
 
 getContainer.append(divForCard)
