@@ -172,7 +172,7 @@ const clickCart=(click)=>{
    divForCart.innerHTML=`<div class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 shadow">
         <div>
           <h1 class="font-inter font-bold">${click.name}</h1>
-          <p>৳ ${click.price}</p>
+         <div class="flex items-center"> <p>৳ ${click.price}</p> <p class="fa-solid fa-xmark text-[12px]"></p> 1</div>
           </div>
         <i id="crossIcon" class="fa-solid fa-xmark cursor-pointer"></i>
         </div>`
