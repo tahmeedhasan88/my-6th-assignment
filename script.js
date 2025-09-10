@@ -147,8 +147,8 @@ const nameModals=(modalId)=>{
            modalField.innerHTML=`<div class="w-[290px] p-1 mx-auto lg:w-[350px]">
   <h1 class="font-bold font-inter">${modals.name}</h1>
   <img class="w-[270px] h-[150px] lg:w-[350px] lg:h-[230px]" src=${modals.image}>
-  <h3 class="font-semibold text-[13px] lg:text-[15px]font-inter">Category: ${modals.category}</h3>
-  <h3 class="font-semibold text-[13px] lg:text-[15px]font-inter">Price: ${modals.price}</h3>
+  <h3 class="font-semibold text-[13px] lg:text-[15px] font-inter">Category: ${modals.category}</h3>
+  <h3 class="font-semibold text-[13px] lg:text-[15px] font-inter">Price: ৳ ${modals.price}</h3>
   <p class="text-[13px] lg:text-[15px] font-inter"><span class="font-semibold">Description:</span> ${modals.description}</p>
 </div>`
          
