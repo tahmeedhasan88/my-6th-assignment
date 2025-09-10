@@ -1,9 +1,16 @@
 // ----------For All Trees-----------
 
 const allTrees=()=>{
+    showLoader();
     fetch("https://openapi.programming-hero.com/api/plants")
 .then((res)=>res.json())
-.then((json)=> displayDatas(json.plants))}
+.then((json)=> {
+    displayDatas(json.plants);
+    hideLoader();})
+.catch(err => {
+      console.error("Error loading data:", err);
+      hideLoader();
+    });}
 
 const displayDatas=(trees)=>{
 
@@ -125,10 +132,7 @@ const nameModals=(modalId)=>{
 </div>`
          
           }
-
 }
-
-
 
 
 
@@ -139,18 +143,17 @@ const cartBtn=(clickId)=>{
     .then((res)=>res.json())
     .then((json)=>clickCart(json.plants))
 
-
 const clickCart=(click)=>{
 
     const getCartDiv=document.getElementById("cart-div")
 
    const divForCart= document.createElement("div")
-   divForCart.innerHTML=`<div id="for-cross" class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 ">
+   divForCart.innerHTML=`<div class="flex items-center justify-between w-[220px] mx-auto bg-[#f0fdf4] p-3 rounded-xl lg:w-[240px] mt-2 ">
         <div>
           <h1 class="font-inter font-bold">${click.name}</h1>
           <p>৳ ${click.price}</p>
           </div>
-        <i id="cross" class="fa-solid fa-xmark"></i>
+        <i id="crossIcon" class="fa-solid fa-xmark cursor-pointer"></i>
         </div>`
 
         getCartDiv.append(divForCart)
@@ -158,25 +161,44 @@ const clickCart=(click)=>{
 alert(`${click.name}has been added to the cart`)
 
 
-//   cart account counting
-   const counter=parseInt(document.getElementById("cart-total").innerHTML)     
-   const count= counter+ click.price;
-   document.getElementById("cart-total").innerHTML=count
-   
-   
 
 
-// -----Cross Button-------
-   document.getElementById("cross").addEventListener("click",
+//   cart account counting 
+ const grandCounter=document.getElementById("cart-total")  
+let counter=parseInt(grandCounter.innerText) 
+   const count= counter+ Number(click.price);
+   grandCounter.innerText=count;
+//  Minimization  
+const crossIcon = divForCart.querySelector("i");
+   crossIcon.addEventListener("click", 
     function(){
         
-        divForCart.innerHTML="";
+           let countCross= parseInt(grandCounter.innerText)
+           let updateTotal = countCross - Number(click.price)
+
+            grandCounter.innerText=updateTotal; 
+
     })
+  
 
-    
+// -----Cross Button-------
+   const removeBtn = divForCart.querySelector("i");
+  removeBtn.addEventListener("click", () => {
+    divForCart.remove();
+  });
+
 }
 }
 
+
+// ------Loading spinner---------
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+}
 
 
 
